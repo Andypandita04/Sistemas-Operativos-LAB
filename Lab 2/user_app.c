@@ -15,7 +15,7 @@ int user_app_entry(void) {
 
     while (1) {
         // Operational Phase (Unprivileged): The user program performs its main functionality.
-        // Read the button state using sys_gpio_get 
+        // TODO :Read the button state using sys_gpio_get 
         // set the LED state accordingly using sys_gpio_set
         int button_state = sys_gpio_get(BTN_PIN);
         sys_gpio_set(LED_PIN, button_state);
@@ -25,8 +25,3 @@ int user_app_entry(void) {
     return 0;
 }
 
-case SYS_GPIO_GET:
-    // TODO: Read the GPIO value using the kernel function
-    // Place the result back in r0 (svc_args[0]) to return to user space
-    svc_args[0] = k_gpio_get(svc_args[0]);
-    break;
